@@ -6,5 +6,5 @@ import (
 )
 
 type walletRepository interface {
-	CreatWallet(context.Context, *dto.CreateWalletDTO) error
+	CreatWallet(context.Context, *dto.CreateWalletDTO) (string, error)
 }

@@ -7,7 +7,7 @@ import (
 )
 
 type userRepository interface {
-	CreatUser(context.Context, *dto.CreateUserDTO) error
+	CreatUser(ctx context.Context, dto *dto.CreateUserDTO) (string, error)
 }
 
 type userService struct {
@@ -29,14 +29,16 @@ func (us *userService) RegisterUser(ctx context.Context, request *dto.RegisterUs
 
 	//TODO validate user login is unique
 
-	if err := us.userRepository.CreatUser(ctx, &dto.CreateUserDTO{Login: request.Login, Role: request.Role}); err != nil {
+	userID, err := us.userRepository.CreatUser(ctx, &dto.CreateUserDTO{Login: request.Login, Role: request.Role})
+	if err != nil {
 		return fmt.Errorf("service.users.RegisterUser.CreatUser error: %w", err)
 	}
 
-	if err := us.walletRepository.CreatWallet(ctx, &dto.CreateWalletDTO{
+	_, err = us.walletRepository.CreatWallet(ctx, &dto.CreateWalletDTO{
 		WalletAddress: request.WalletAddress,
-		UserID:        "",
-	}); err != nil {
+		UserID:        userID,
+	})
+	if err != nil {
 		return fmt.Errorf("service.users.RegisterUser.CreatWallet error: %w", err)
 	}
 

@@ -16,13 +16,14 @@ func NewRepository(db *sql.DB) *Repository {
 	return &Repository{db: db}
 }
 
-func (r *Repository) CreatWallet(ctx context.Context, dto *dto.CreateWalletDTO) error {
+func (r *Repository) CreatWallet(ctx context.Context, dto *dto.CreateWalletDTO) (string, error) {
 	query := `INSERT INTO wallets (id, user_id, address) VALUES ($1, $2, $3)`
 
+	newUUID := uuid.New()
 	_, err := r.db.ExecContext(ctx, query, uuid.New(), dto.UserID, dto.WalletAddress)
 	if err != nil {
-		return fmt.Errorf("repository.wallets.CreatWallet error: %w", err)
+		return "", fmt.Errorf("repository.wallets.CreatWallet error: %w", err)
 	}
 
-	return nil
+	return newUUID.String(), nil
 }
