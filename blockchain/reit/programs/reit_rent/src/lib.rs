@@ -20,8 +20,6 @@ pub mod reit_rent {
  ) -> Result<()> {
      create_property::handler(ctx, total_supply_nano)
  }
-
-
    pub fn deposit_rent(
        ctx: Context<deposit_rent::DepositRent>,
        amount_micro: u64,
