@@ -9,6 +9,7 @@ import (
 	propertyRepository "reit-real-estate/internal/repository/properties"
 	tokenRepository "reit-real-estate/internal/repository/tokens"
 	userRepository "reit-real-estate/internal/repository/users"
+	userTokenRepository "reit-real-estate/internal/repository/usersTokens"
 	walletRepository "reit-real-estate/internal/repository/wallets"
 	"reit-real-estate/internal/service"
 	"reit-real-estate/pkg/postgres"
@@ -40,7 +41,8 @@ func main() {
 	walletRepo := walletRepository.NewRepository(db)
 	propertyRepo := propertyRepository.NewRepository(db)
 	tokenRepo := tokenRepository.NewRepository(db)
-	service := service.NewService(userRepo, walletRepo, propertyRepo, tokenRepo)
+	userTokenRepo := userTokenRepository.NewRepository(db)
+	service := service.NewService(userRepo, walletRepo, propertyRepo, tokenRepo, userTokenRepo)
 
 	controller := api.NewController(service)
 	server := gin.Default()

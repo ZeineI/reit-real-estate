@@ -9,6 +9,7 @@ import (
 type userRepository interface {
 	CreatUser(ctx context.Context, dto *dto.CreateUserDTO) (string, error)
 	GetUserByID(ctx context.Context, id string) (*dto.UserDTO, error)
+	GetUserByLogin(ctx context.Context, login string) (*dto.UserDTO, error)
 }
 
 func (s *service) RegisterUser(ctx context.Context, request *dto.RegisterUserDTO) error {

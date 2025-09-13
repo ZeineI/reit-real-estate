@@ -1,10 +1,11 @@
 package service
 
 type service struct {
-	userRepository     userRepository
-	walletRepository   walletRepository
-	propertyRepository propertyRepository
-	tokenRepository    tokenRepository
+	userRepository      userRepository
+	walletRepository    walletRepository
+	propertyRepository  propertyRepository
+	tokenRepository     tokenRepository
+	userTokenRepository userTokenRepository
 }
 
 func NewService(
@@ -12,11 +13,13 @@ func NewService(
 	walletRepository walletRepository,
 	propertyRepository propertyRepository,
 	tokenRepository tokenRepository,
+	userTokenRepository userTokenRepository,
 ) *service {
 	return &service{
-		userRepository:     userRepository,
-		walletRepository:   walletRepository,
-		propertyRepository: propertyRepository,
-		tokenRepository:    tokenRepository,
+		userRepository:      userRepository,
+		walletRepository:    walletRepository,
+		propertyRepository:  propertyRepository,
+		tokenRepository:     tokenRepository,
+		userTokenRepository: userTokenRepository,
 	}
 }

@@ -4,7 +4,7 @@ import "strings"
 
 func (dto *RegisterUserDTO) Validate() error {
 	dto.normalize()
-	if dto.Role != roleInvestor && dto.Role != roleAdmin {
+	if dto.Role != RoleAdmin && dto.Role != RoleInvestor {
 		return ErrInvalidRole
 	}
 
@@ -40,4 +40,24 @@ func (dto *RegisterPropertyDTO) normalize() {
 	dto.OwnerID = strings.TrimSpace(dto.OwnerID)
 	dto.Name = strings.TrimSpace(dto.Name)
 	dto.Symbol = strings.TrimSpace(dto.Symbol)
+}
+
+func (dto *InvestDTO) Validate() error {
+	dto.normalize()
+	if dto.InvestorID == "" {
+		return ErrRequiredInvestorID
+	}
+	if dto.PropertyID == "" {
+		return ErrRequiredPropertyID
+	}
+	if dto.TokenAmount <= 0 {
+		return ErrInvalidTokenAmount
+	}
+
+	return nil
+}
+
+func (dto *InvestDTO) normalize() {
+	dto.InvestorID = strings.TrimSpace(dto.InvestorID)
+	dto.PropertyID = strings.TrimSpace(dto.PropertyID)
 }

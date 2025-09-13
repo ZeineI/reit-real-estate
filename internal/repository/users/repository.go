@@ -51,3 +51,26 @@ func (r *Repository) GetUserByID(ctx context.Context, id string) (*dto.UserDTO, 
 
 	return userDTO, nil
 }
+
+func (r *Repository) GetUserByLogin(ctx context.Context, login string) (*dto.UserDTO, error) {
+	query := `SELECT id, login, role, created_at FROM users WHERE login=$1`
+
+	row := r.db.QueryRowContext(ctx, query, login)
+
+	var model user
+	if err := row.Scan(&model.id, &model.login, &model.role, &model.createdAt); err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, ErrNotFound
+		}
+		return nil, fmt.Errorf("repository.users.GetUserByLogin error: %w", err)
+	}
+
+	userDTO := &dto.UserDTO{
+		ID:        model.id.String(),
+		Login:     model.login,
+		Role:      model.role,
+		CreatedAt: model.createdAt.Unix(),
+	}
+
+	return userDTO, nil
+}

@@ -22,3 +22,20 @@ func (c *controller) RegisterProperty(ctx *gin.Context) {
 	}
 	ctx.JSON(http.StatusOK, gin.H{"message": "success"})
 }
+
+func (c *controller) Invest(ctx *gin.Context) {
+	var request *dto.InvestDTO
+	err := ctx.ShouldBindJSON(&request)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	err = c.service.Invest(ctx, request)
+	if err != nil {
+		//TODO handle errors
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	ctx.JSON(http.StatusOK, gin.H{"message": "success"})
+}
