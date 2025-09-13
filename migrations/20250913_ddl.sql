@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS users (
     id UUID PRIMARY KEY,
+    login VARCHAR(255) UNIQUE NOT NULL,
     role VARCHAR(10) NOT NULL DEFAULT 'unknown',
     created_at TIMESTAMP(6) DEFAULT now()
 );

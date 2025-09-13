@@ -6,9 +6,22 @@ import (
 	"os"
 )
 
-const configFile = "/config/config.yaml"
+const configFile = "./config/config.yaml"
 
 type Config struct {
+	AppHost        string         `json:"app_host"`
+	AppPort        string         `json:"app_port"`
+	DatabaseConfig DatabaseConfig `yaml:"db"`
+}
+
+type DatabaseConfig struct {
+	Host               string `yaml:"host"`
+	Port               int    `yaml:"port"`
+	User               string `yaml:"user"`
+	Password           string `yaml:"password"`
+	DatabaseName       string `yaml:"database_name"`
+	MaxOpenConnections int    `yaml:"max_open_connections"`
+	MaxIdleConnections int    `yaml:"max_idle_connections"`
 }
 
 func LoadConfig() (*Config, error) {
