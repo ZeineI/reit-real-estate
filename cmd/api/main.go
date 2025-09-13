@@ -6,6 +6,8 @@ import (
 	"log"
 	"reit-real-estate/config"
 	"reit-real-estate/internal/api"
+	propertyRepository "reit-real-estate/internal/repository/properties"
+	tokenRepository "reit-real-estate/internal/repository/tokens"
 	userRepository "reit-real-estate/internal/repository/users"
 	walletRepository "reit-real-estate/internal/repository/wallets"
 	"reit-real-estate/internal/service"
@@ -36,13 +38,15 @@ func main() {
 
 	userRepo := userRepository.NewRepository(db)
 	walletRepo := walletRepository.NewRepository(db)
-	userService := service.NewUserService(userRepo, walletRepo)
+	propertyRepo := propertyRepository.NewRepository(db)
+	tokenRepo := tokenRepository.NewRepository(db)
+	service := service.NewService(userRepo, walletRepo, propertyRepo, tokenRepo)
 
-	controller := api.NewController(userService)
+	controller := api.NewController(service)
 	server := gin.Default()
 	controller.Routes(server)
 
-	err = server.Run(fmt.Sprintf("%s:%s", cfg.AppHost, cfg.AppPort))
+	err = server.Run(fmt.Sprintf("%s:%d", cfg.AppConfig.Host, cfg.AppConfig.Port))
 	if err != nil {
 		log.Println(err)
 		return

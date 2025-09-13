@@ -9,9 +9,13 @@ import (
 const configFile = "./config/config.yaml"
 
 type Config struct {
-	AppHost        string         `json:"app_host"`
-	AppPort        string         `json:"app_port"`
+	AppConfig      AppConfig      `yaml:"app"`
 	DatabaseConfig DatabaseConfig `yaml:"db"`
+}
+
+type AppConfig struct {
+	Host string `yaml:"host"`
+	Port int    `yaml:"port"`
 }
 
 type DatabaseConfig struct {

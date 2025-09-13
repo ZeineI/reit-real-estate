@@ -6,15 +6,15 @@ import (
 	"reit-real-estate/internal/dto"
 )
 
-func (c *controller) SignUp(ctx *gin.Context) {
-	var request *dto.RegisterUserDTO
+func (c *controller) RegisterProperty(ctx *gin.Context) {
+	var request *dto.RegisterPropertyDTO
 	err := ctx.ShouldBindJSON(&request)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	err = c.service.RegisterUser(ctx, request)
+	err = c.service.RegisterProperty(ctx, request)
 	if err != nil {
 		//TODO handle errors
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})

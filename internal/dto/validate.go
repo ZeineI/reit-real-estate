@@ -20,3 +20,24 @@ func (dto *RegisterUserDTO) normalize() {
 	dto.Role = strings.TrimSpace(dto.Role)
 	dto.WalletAddress = strings.TrimSpace(dto.WalletAddress)
 }
+
+func (dto *RegisterPropertyDTO) Validate() error {
+	dto.normalize()
+	if dto.OwnerID == "" {
+		return ErrRequiredOwnerID
+	}
+	if dto.TokenTotal <= 0 {
+		return ErrInvalidTokenTotal
+	}
+	if dto.Price <= 0 {
+		return ErrInvalidPrice
+	}
+
+	return nil
+}
+
+func (dto *RegisterPropertyDTO) normalize() {
+	dto.OwnerID = strings.TrimSpace(dto.OwnerID)
+	dto.Name = strings.TrimSpace(dto.Name)
+	dto.Symbol = strings.TrimSpace(dto.Symbol)
+}
