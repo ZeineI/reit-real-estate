@@ -6,10 +6,10 @@ seeds = true
 skip-lint = false
 
 [programs.localnet]
-reit_rent = "8GKoDJSNEDbYWy1iF6Lewr8L3G9uuYSqqutB18QFC4Rw" //TODO
+reit_rent = "8GKoDJSNEDbYWy1iF6Lewr8L3G9uuYSqqutB18QFC4Rw"
 
 [programs.devnet]
-reit_rent = "8GKoDJSNEDbYWy1iF6Lewr8L3G9uuYSqqutB18QFC4Rw" //TODO
+reit_rent = "8GKoDJSNEDbYWy1iF6Lewr8L3G9uuYSqqutB18QFC4Rw"
 
 [registry]
 url = "https://anchor.projectserum.com"

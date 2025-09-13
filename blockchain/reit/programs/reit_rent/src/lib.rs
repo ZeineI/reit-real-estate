@@ -8,7 +8,7 @@ pub mod instructions;
 
 use instructions::*;
 
-declare_id!("8GKoDJSNEDbYWy1iF6Lewr8L3G9uuYSqqutB18QFC4Rw"); //TODO
+declare_id!("8GKoDJSNEDbYWy1iF6Lewr8L3G9uuYSqqutB18QFC4Rw");
 
 #[program]
 pub mod reit_rent {
