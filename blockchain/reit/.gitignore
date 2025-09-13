@@ -5,4 +5,5 @@ target/
 # Solana program binaries & keys
 *.so
 *.json
-
+!Cargo.toml
+!Anchor.toml
