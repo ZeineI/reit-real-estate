@@ -7,4 +7,5 @@ import (
 
 type walletRepository interface {
 	CreatWallet(context.Context, *dto.CreateWalletDTO) (string, error)
+	GetWalletByUserID(ctx context.Context, id string) (*dto.WalletDTO, error)
 }

@@ -3,6 +3,7 @@ package wallets
 import (
 	"context"
 	"database/sql"
+	"errors"
 	"fmt"
 	"github.com/google/uuid"
 	"reit-real-estate/internal/dto"
@@ -26,4 +27,27 @@ func (r *Repository) CreatWallet(ctx context.Context, dto *dto.CreateWalletDTO) 
 	}
 
 	return newUUID.String(), nil
+}
+
+func (r *Repository) GetWalletByUserID(ctx context.Context, id string) (*dto.WalletDTO, error) {
+	query := `SELECT id, user_id, address, created_at FROM wallets WHERE user_id=$1`
+
+	row := r.db.QueryRowContext(ctx, query, id)
+
+	var model wallet
+	if err := row.Scan(&model.id, &model.userID, &model.address, &model.createdAt); err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, ErrNotFound
+		}
+		return nil, fmt.Errorf("repository.users.GetUserByID error: %w", err)
+	}
+
+	walletDTO := &dto.WalletDTO{
+		ID:            model.id.String(),
+		UserID:        model.userID.String(),
+		WalletAddress: model.address,
+		CreatedAt:     model.createdAt.Unix(),
+	}
+
+	return walletDTO, nil
 }
