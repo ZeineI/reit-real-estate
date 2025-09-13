@@ -1,0 +1,15 @@
+app:
+  host: "localhost"
+  port: 8000
+db:
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  password: "postgres"
+  database_name: "postgres"
+  max_open_connections: 10
+  max_idle_connections: 5
+solana:
+  rpc_url: "https://api.devnet.solana.com"
+  program_id: "A7AhDL7DiVkFJ7mQg8ZQZTucJXi2n2GFQwJLBwzJLxTQ"
+  reit_mint: "A7AhDL7DiVkFJ7mQg8ZQZTucJXi2n2GFQwJLBwzJLxTQ"

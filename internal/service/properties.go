@@ -3,7 +3,9 @@ package service
 import (
 	"context"
 	"fmt"
+	"log"
 	"reit-real-estate/internal/dto"
+	"reit-real-estate/pkg/adapter/internal/pkg/reit"
 )
 
 type propertyRepository interface {
@@ -24,6 +26,11 @@ func (s *service) RegisterProperty(ctx context.Context, request *dto.RegisterPro
 		return fmt.Errorf("service.RegisterProperty error: %w", dto.ErrInvalidRole)
 	}
 
+	walletDTO, err := s.walletRepository.GetWalletByUserID(ctx, request.OwnerID)
+	if err != nil {
+		return fmt.Errorf("service.RegisterProperty.GetWalletByUserID error: %w", err)
+	}
+
 	propertyID, err := s.propertyRepository.CreatProperty(ctx, &dto.CreatePropertyDTO{
 		OwnerID:    userDTO.ID,
 		Name:       request.Name,
@@ -41,6 +48,19 @@ func (s *service) RegisterProperty(ctx context.Context, request *dto.RegisterPro
 	if err != nil {
 		return fmt.Errorf("service.RegisterProperty.CreateToken error: %w", err)
 	}
+
+	transaction, err := s.reitService.CreatePropertyTx(ctx, reit.CreatePropertyParams{
+		WalletAddress:     walletDTO.WalletAddress,
+		TokenAddress:      s.reitConfig.tokenAddress,
+		Price:             request.Price,
+		TotalSupplyTokens: fmt.Sprintf("%d", request.TokenTotal),
+		ReitMint:          s.reitConfig.reitMint,
+		Symbol:            request.Symbol,
+	})
+	if err != nil {
+		return fmt.Errorf("service.RegisterProperty.CreatePropertyTx error: %w", err)
+	}
+	log.Println(transaction)
 
 	return nil
 }

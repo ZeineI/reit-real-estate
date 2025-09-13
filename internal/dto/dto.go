@@ -18,6 +18,13 @@ type CreateUserDTO struct {
 	Role  string `json:"role"`
 }
 
+type WalletDTO struct {
+	ID            string `json:"id"`
+	WalletAddress string `json:"wallet_address"`
+	UserID        string `json:"user_id"`
+	CreatedAt     int64  `json:"created_at"`
+}
+
 type CreateWalletDTO struct {
 	WalletAddress string `json:"wallet_address"`
 	UserID        string `json:"user_id"`

@@ -12,6 +12,7 @@ import (
 	userTokenRepository "reit-real-estate/internal/repository/usersTokens"
 	walletRepository "reit-real-estate/internal/repository/wallets"
 	"reit-real-estate/internal/service"
+	"reit-real-estate/pkg/adapter/internal/pkg/reit"
 	"reit-real-estate/pkg/postgres"
 )
 
@@ -37,12 +38,22 @@ func main() {
 	}
 	defer db.Close()
 
+	solanaRPC, err := reit.New(reit.Options{
+		RPCURL:    cfg.SolanaConfig.RpcURL,
+		ProgramID: cfg.SolanaConfig.ProgramID,
+	})
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
 	userRepo := userRepository.NewRepository(db)
 	walletRepo := walletRepository.NewRepository(db)
 	propertyRepo := propertyRepository.NewRepository(db)
 	tokenRepo := tokenRepository.NewRepository(db)
 	userTokenRepo := userTokenRepository.NewRepository(db)
-	service := service.NewService(userRepo, walletRepo, propertyRepo, tokenRepo, userTokenRepo)
+	service := service.NewService(userRepo, walletRepo, propertyRepo, tokenRepo, userTokenRepo, solanaRPC)
+	service.WithReit(cfg.SolanaConfig.RpcURL, cfg.SolanaConfig.TokenAddress, cfg.SolanaConfig.ReitMint)
 
 	controller := api.NewController(service)
 	server := gin.Default()

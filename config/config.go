@@ -11,6 +11,7 @@ const configFile = "./config/config.yaml"
 type Config struct {
 	AppConfig      AppConfig      `yaml:"app"`
 	DatabaseConfig DatabaseConfig `yaml:"db"`
+	SolanaConfig   SolanaConfig   `yaml:"solana"`
 }
 
 type AppConfig struct {
@@ -26,6 +27,13 @@ type DatabaseConfig struct {
 	DatabaseName       string `yaml:"database_name"`
 	MaxOpenConnections int    `yaml:"max_open_connections"`
 	MaxIdleConnections int    `yaml:"max_idle_connections"`
+}
+
+type SolanaConfig struct {
+	RpcURL       string `yaml:"rpc_url"`
+	ProgramID    string `yaml:"program_id"`
+	TokenAddress string `yaml:"token_address"`
+	ReitMint     string `yaml:"reit_mint"`
 }
 
 func LoadConfig() (*Config, error) {
