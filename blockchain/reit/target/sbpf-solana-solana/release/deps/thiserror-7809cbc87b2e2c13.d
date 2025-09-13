@@ -1,0 +1,11 @@
+/Users/lazzat/reit-real-estate/blockchain/reit/target/sbpf-solana-solana/release/deps/libthiserror-7809cbc87b2e2c13.rmeta: /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/lib.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/aserror.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/display.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/provide.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/var.rs
+
+/Users/lazzat/reit-real-estate/blockchain/reit/target/sbpf-solana-solana/release/deps/libthiserror-7809cbc87b2e2c13.rlib: /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/lib.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/aserror.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/display.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/provide.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/var.rs
+
+/Users/lazzat/reit-real-estate/blockchain/reit/target/sbpf-solana-solana/release/deps/thiserror-7809cbc87b2e2c13.d: /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/lib.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/aserror.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/display.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/provide.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/var.rs
+
+/Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/lib.rs:
+/Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/aserror.rs:
+/Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/display.rs:
+/Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/provide.rs:
+/Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.16/src/var.rs:

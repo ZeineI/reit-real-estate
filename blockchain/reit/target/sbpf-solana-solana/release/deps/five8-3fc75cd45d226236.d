@@ -1,0 +1,11 @@
+/Users/lazzat/reit-real-estate/blockchain/reit/target/sbpf-solana-solana/release/deps/libfive8-3fc75cd45d226236.rmeta: /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/lib.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/decode.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/encode.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/unlikely.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/../README.md
+
+/Users/lazzat/reit-real-estate/blockchain/reit/target/sbpf-solana-solana/release/deps/libfive8-3fc75cd45d226236.rlib: /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/lib.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/decode.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/encode.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/unlikely.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/../README.md
+
+/Users/lazzat/reit-real-estate/blockchain/reit/target/sbpf-solana-solana/release/deps/five8-3fc75cd45d226236.d: /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/lib.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/decode.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/encode.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/unlikely.rs /Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/../README.md
+
+/Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/lib.rs:
+/Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/decode.rs:
+/Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/encode.rs:
+/Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/unlikely.rs:
+/Users/lazzat/.cargo/registry/src/index.crates.io-6f17d22bba15001f/five8-0.2.1/src/../README.md:
